@@ -76,6 +76,14 @@ const Editor = ({ onChangeField, title, body }) => {
     });
   }, [onChangeField]);
 
+  //mount 상태에 따라 작업을 처리
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (mounted.current) return; //현재 mount상태가 false면 무시
+    mounted.current = true; //true로 바꿔주고
+    quillInstance.current.root.innerHTML = body; //에디터의 innerHTML을 body값으로
+  }, [body]);
+
   const onChangeTitle = (e) => {
     onChangeField({ key: 'title', value: e.target.value });
   };

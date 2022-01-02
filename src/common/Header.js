@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Responsive from './Responsive';
 
-const HeaderBlock = styled.div`
+const HeaderBlock = styled(Responsive)`
   position: fixed;
   width: 100%;
   background: white;

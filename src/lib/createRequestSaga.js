@@ -11,9 +11,11 @@ export default function createRequestSaga(type, request) {
 
     try {
       const response = yield call(request, action.payload); //인증요청
+      console.log('requestsaga', response);
       yield put({
         type: SUCCESS,
         payload: response.data,
+        meta: response, //HTTP헤더와 상태코드 담음
       });
     } catch (e) {
       yield put({
@@ -22,6 +24,7 @@ export default function createRequestSaga(type, request) {
         error: true,
       });
     }
+
     yield put(finishLoading(type)); //인증 종료
   };
 }

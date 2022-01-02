@@ -14,5 +14,11 @@ export const listPosts = ({ username, page, tag }) => {
     username,
     tag,
   });
+  console.log(queryString);
   return client.get(`/api/posts?${queryString}`);
 };
+
+export const updatePost = ({ id, title, body, tags }) =>
+  client.patch(`/api/posts/${id}`, { title, body, tags });
+
+export const removePost = (id) => client.delete(`/api/posts/${id}`);

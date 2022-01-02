@@ -47,6 +47,8 @@ const PostItem = ({ post }) => {
 
 const PostList = ({ posts, error, loading, showWriteButton }) => {
   if (error) {
+    console.log(error);
+
     return <PostListBlock>에러가 발생했습니다.</PostListBlock>;
   }
   return (

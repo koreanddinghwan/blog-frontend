@@ -3,7 +3,7 @@ import PostList from '../../components/post/PostList';
 import qs from 'qs';
 import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import posts, { listPosts } from '../../modules/posts';
+import { listPosts } from '../../modules/posts';
 
 const PostListContainer = ({ location, match }) => {
   const dispatch = useDispatch();
